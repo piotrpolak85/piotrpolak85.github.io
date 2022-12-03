@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pl">
+<title>Piotr Polak - IT Engineer</title>
+<meta charset="UTF-8">
+<meta name="theme-color" content="#333333"/>
+<meta name="description" content="Piotr Polak inżynier informatyk."/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css"/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway"/>
+<style>
+body,h1 {font-family: "Raleway", sans-serif; font-weight: bold; text-shadow: 3px 3px 3px black;}
+body, html {height: 100%;}
+.bgimg {
+    background-image: url('background.jpg');
+    min-height: 100%;
+    background-position: center;
+    background-size: cover;
+}
+</style>
+<body>
+
+<div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
+  <div class="w3-display-topleft w3-padding-large w3-xlarge">
+    Piotr Polak - <span style="color: red;">IT Engineer</span>
+  </div>
+  <div class="w3-display-middle">
+    <h1 class="w3-animate-top w3-center">
+		<div id="zegar" style="font-size: 25vh;"></div>
+		<div id="dzien" style="font-size: 9vh;"></div>
+		<div id="data" style="font-size: 12vh;"></div>
+	</h1>
+  </div>
+  <div class="w3-display-bottomleft w3-padding-large">
+    <p><span style="color: red;">&copy; 2020</span>&nbsp; piotr.polak.85@gmail.com</p>
+  </div>
+</div>
+<script type="text/javascript">
+function zegar(){
+var d = new Date();
+var h = d.getHours();
+var m = d.getMinutes();
+var s = d.getSeconds();
+var time = h + ((m<10)?":0":":") + m + ((s<10)?":0":":") + s;
+document.getElementById("zegar").innerHTML = time;
+setTimeout("zegar()", 1000);
+}
+function dzien(){
+var d = new Date();
+var dx = d.getDay();
+if (dx==1) den = "Poniedziałek";
+else if (dx==2) den = "Wtorek";
+else if (dx==3) den = "Środa";
+else if (dx==4) den = "Czwartek";
+else if (dx==5) den = "Piątek";
+else if (dx==6) den = "Sobota";
+else den = "Niedziela";
+document.getElementById("dzien").innerHTML = den;
+}
+function data(){
+var d = new Date();
+var y = d.getFullYear();
+var m = d.getMonth()+1;
+var dx = d.getDate();
+var fulldate =  ((dx<10)?"0":"") + dx + ((m<10)?"-0":"-") + m + "-" + y;
+document.getElementById("data").innerHTML = fulldate;
+}
+zegar();
+dzien();
+data();
+</script>
+</body>
+</html>
